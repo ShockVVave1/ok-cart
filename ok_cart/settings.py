@@ -1,5 +1,4 @@
-from collections import Iterable
-from typing import Any
+from typing import Any, Iterable
 
 from django.conf import settings as django_settings
 from django.utils.module_loading import import_string

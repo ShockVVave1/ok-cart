@@ -5,7 +5,6 @@ from django.contrib.auth import get_user_model
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.postgres.indexes import BrinIndex
-from django.contrib.postgres.fields import JSONField
 from django.db import models
 from django.utils.encoding import smart_str
 from django.utils.timezone import now
@@ -92,7 +91,7 @@ class Cart(TimestampsMixin):
         default=Decimal('0.0'),
         max_digits=20,
     )
-    parameters = JSONField(
+    parameters = models.JSONField(
         blank=True,
         default=dict
     )
@@ -147,7 +146,7 @@ class CartGroup(TimestampsMixin):
         default=0,
         max_digits=20,
     )
-    parameters = JSONField(
+    parameters = models.JSONField(
         blank=True,
         default=dict
     )
@@ -194,7 +193,7 @@ class CartItem(TimestampsMixin):
         pgettext_lazy("Cart", "Quantity"),
         default=0
     )
-    parameters = JSONField(
+    parameters = models.JSONField(
         blank=True,
         default=dict
     )
